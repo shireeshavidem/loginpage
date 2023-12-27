@@ -48,8 +48,9 @@
       }
    </style>
 <body>
-   <form>
+   <form action="" method="post">
       <div class="formContainer">
+         {% csrf_token %}
          <h1>Sign Up Form</h1>
          <hr>
          <label for="username"><b>Username</b></label>
@@ -63,10 +64,11 @@
          <label>
             <input type="checkbox" checked="checked" name="remember" style="margin-bottom: 15px"> Remember me
          </label>
-         <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
          <div>
             <button type="submit" class="signup">Sign Up</button>
          </div>
+         <a href="{%url 'login'%}" style="color:dodgerblue">I already have an account.</a>
+         
       </div>
    </form>
 </body>
