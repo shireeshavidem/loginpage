@@ -5,7 +5,7 @@
          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       * {box-sizing: border-box}
-      input[type=text], input[type=password] {
+      input[type=text], input[type=password1],input[type=password2] {
          width: 100%;
          font-size: 28px;
          padding: 15px;
@@ -17,7 +17,7 @@
       label{
          font-size: 15px;
       }
-      input[type=text]:focus, input[type=password]:focus {
+      input[type=text]:focus, input[type=password2]:focus {
          background-color: #ddd;
          outline: none;
       }
@@ -57,17 +57,14 @@
          <input type="text" placeholder="Enter username" name="username" required>
          <label for="email"><b>Email</b></label>
          <input type="text" placeholder="Enter Email" name="email" required>
-         <label for="password"><b>Password</b></label>
-         <input type="password" placeholder="Enter Password" name="password" required>
-         <label for="repeatPassword"><b>Repeat Password</b></label>
-         <input type="password" placeholder="Repeat Password" name="repeatPassword" required>
-         <label>
-            <input type="checkbox" checked="checked" name="remember" style="margin-bottom: 15px"> Remember me
-         </label>
+         <label for="password1"><b>Password</b></label>
+         <input type="password1" placeholder="Enter Password" name="password1" required><br></br>
+         <label for="password2"><b>Conform Password</b></label>
+         <input type="password2" placeholder="Conform Password" name="password2" required>
          <div>
             <button type="submit" class="signup">Sign Up</button>
          </div>
-         <a href="{%url 'login'%}" style="color:dodgerblue">I already have an account.</a>
+         <a href="login" style="color:dodgerblue">I already have an account.</a>
          
       </div>
    </form>

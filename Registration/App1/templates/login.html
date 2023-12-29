@@ -42,11 +42,6 @@
       button:hover {
          opacity: 0.8;
       }
-      .cancelbtn {
-         width: auto;
-         padding: 10px 18px;
-         background-color: #f44336;
-      }
       .profilePic {
          text-align: center;
          margin: 24px 0 12px 0;
@@ -59,7 +54,7 @@
       .formFields {
          padding: 16px;
       }
-      span.pass {
+      span.account {
          float: right;
          padding-top: 16px;
       }
@@ -93,13 +88,9 @@
             required
          />
          <button type="submit">Login</button>
-         <label>
-            <input type="checkbox" checked="checked" name="remember" /> Remember me
-         </label>
          </div>
          <div class="formFields" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
-            <span class="pass" ><a href="{%url 'signup'%}">create a account</a></span>
+            <span class="account" ><a href="signup">create a account</a></span>
          </div>
    </form>
 </body>
