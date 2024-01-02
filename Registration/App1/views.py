@@ -1,6 +1,5 @@
 
-from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate,login
+from django.shortcuts import redirect, render,HttpResponse
 from .models import Register
 # Create your views here.
 
@@ -13,11 +12,12 @@ def SignupPage(request):
         email=request.POST['email']
         pass1=request.POST['password1']
         pass2=request.POST['password2']
-        if pass1==pass2:
+        if pass1!=pass2:
             
-            details = Register(username=eusername,email=email,password1=pass1)
-            details.save()
-            
+            return HttpResponse("password and conform password are not matching")
+        else:
+            user = Register(username=eusername,email=email,password1=pass1)
+            user.save()
             return redirect('login')
     else:   
         return render (request,'signup.html')
@@ -26,14 +26,21 @@ def LoginPage(request):
     if request.method=='POST':
         username=request.POST['username']
         password=request.POST['password1']
-        user = authenticate(request,username=username,password1=password)
+        user_det = Register.objects.all()
+        user = None
+        for i in user_det:
+            if (i.username,i.password1)==(username,password):
+                user = i.username
+                request.method = ""
+                break
         if user is not None:
-           login(request,user)
-           return redirect('home') 
+            return redirect('home')
         else:
-            return None
+            return HttpResponse("username or password is wrong")
          
     return render (request,'login.html')
 
 def LogoutPage(request):
-    return redirect(request,'login.html')
+    if request.method == 'POST':
+        return redirect('login')
+    return redirect(request,'home.html')
