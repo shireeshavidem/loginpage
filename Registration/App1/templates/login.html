@@ -74,9 +74,6 @@
    <h1>Login Form</h1>
    <form method="post">
       {% csrf_token %}
-         <div class="profilePic">
-            <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Avatar" class="avatar" />
-         </div>
          <div class="formFields">
          <label for="username"><b>Username</b></label>
          <input type="text" placeholder="Enter Username" name="username" required />
@@ -84,13 +81,16 @@
          <input
             type="password"
             placeholder="Enter Password"
-            name="password"
+            name="password1"
             required
          />
          <button type="submit">Login</button>
          </div>
          <div class="formFields" style="background-color:#f1f1f1">
-            <span class="account" ><a href="signup">create a account</a></span>
+         </div>
+         
+         
+      </div>
          </div>
    </form>
 </body>
